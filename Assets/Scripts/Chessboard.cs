@@ -111,6 +111,7 @@ public class Chessboard : MonoBehaviour
         {
             fenCounts = new Dictionary<string, int>();
             updateFen();
+            Debug.Log(fen);
             StartCoroutine(MovePieceTest());
         }
     }

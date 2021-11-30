@@ -110,8 +110,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cff45aadf031e4b9421d1e1e091819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: 0
+  pieceName: 
   isHeld: 0
   isOnBoard: 0
+  shouldMove: 0
+  desiredPosition: {x: 0, y: 0, z: 0}
+  hasMoved: 0
 --- !u!54 &780508897
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -127,4 +132,4 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3

@@ -21,7 +21,7 @@ public class Square : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Piece") && GameManager.Instance.mode == GameManager.Mode.Placement)
+        if (other.CompareTag("Piece") && GameManager.Instance.mode == GameManager.Mode.Placement && squarePiece == null)
         {
             ChessPiece piece = other.GetComponent<ChessPiece>();
             squarePiece = piece;
@@ -32,7 +32,8 @@ public class Square : MonoBehaviour
     {
         if (other.CompareTag("Piece") && GameManager.Instance.mode == GameManager.Mode.Placement)
         {
-            squarePiece = null;
+            ChessPiece piece = other.GetComponent<ChessPiece>();
+            if (piece.Equals(squarePiece)) squarePiece = null;
         }
     }
 
