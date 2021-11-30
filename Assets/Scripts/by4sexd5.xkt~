@@ -19,8 +19,6 @@ public class Chessboard : MonoBehaviour
 
     public bool isCheckmate;
 
-    public bool isDraw;
-
     Dictionary<string, int> fenCounts;
 
     // Start is called before the first frame update
@@ -41,7 +39,6 @@ public class Chessboard : MonoBehaviour
         turn = "w";
         //StartCoroutine(MovePieceTest());
         isCheckmate = false;
-        isDraw = false;
     }
 
     // Update is called once per frame
@@ -103,27 +100,25 @@ public class Chessboard : MonoBehaviour
         }
         turn = turn == "w" ? "b" : "w";
         updateFen();
+        Debug.Log(fenCounts);
     }
 
     public void StartGame()
     {
-        if (GameManager.Instance.mode == GameManager.Mode.Placement)
-        {
-            fenCounts = new Dictionary<string, int>();
-            updateFen();
-            StartCoroutine(MovePieceTest());
-        }
+        fenCounts = new Dictionary<string, int>();
+        updateFen();
+        StartCoroutine(MovePieceTest());
     }
 
     IEnumerator MovePieceTest()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
         
         if (GameManager.Instance.mode == GameManager.Mode.Placement) GameManager.Instance.mode = GameManager.Mode.Game;
         //string move = stockfish.GetBestMove(listMoves.ConvertAll<string>(elem => $"{elem.Item1.name.ToLower()}{elem.Item2.name.ToLower()}").ToArray());
         string move = stockfish.GetBestMove(fen);
 
-        if (move != "(none)" && !isDraw)
+        if (move != "(none)")
         {
             (int, int) fromIdx = (letters.IndexOf(move[0].ToString().ToUpper()), (int.Parse(move[1].ToString()) - 1));
             (int, int) toIdx = (letters.IndexOf(move[2].ToString().ToUpper()), (int.Parse(move[3].ToString()) - 1));
@@ -134,15 +129,8 @@ public class Chessboard : MonoBehaviour
         }
         else // Checkmate
         {
-            if (isDraw)
-            {
-                Debug.Log("DRAW");
-            }
-            else
-            {
-                isCheckmate = true;
-                Debug.Log("CHECKMATE");
-            }
+            isCheckmate = true;
+            Debug.Log("CHECKMATE");
         }
     }
 
@@ -180,20 +168,8 @@ public class Chessboard : MonoBehaviour
         fen += " " + turn;
         fen += " - - 0 1";
 
-        if (fenCounts.ContainsKey(fen))
-        {
-            fenCounts[fen]++;
-            check3MoveRep();
-        }
-        else
-        {
-            fenCounts.Add(fen, 1);
-        }
-    }
-
-    void check3MoveRep()
-    {
-        if (fenCounts.ContainsValue(3)) isDraw = true;
+        if (fenCounts.ContainsKey(fen)) fenCounts[fen]++;
+        else fenCounts.Add(fen, 1);
     }
 
 }
