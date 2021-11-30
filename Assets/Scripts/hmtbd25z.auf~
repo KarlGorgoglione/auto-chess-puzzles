@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Chessboard : MonoBehaviour
+{
+
+    Square[,] board;
+    // Start is called before the first frame update
+    void Start()
+    {
+        string[] letters = { "A", "B", "C", "D", "E", "F", "G", "H" };
+        board = new Square[8, 8];
+        for (int i =0; i < 8; i++)
+        {
+            for (int j = 0; j < 8; j++)
+            {
+                board[i, j] = GameObject.Find($"{letters[i]}{j+1}").GetComponent<Square>();
+            }
+        }
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void MovePiece(Square from, Square to)
+    {
+        if (to.squarePiece == null)
+        {
+            to.squarePiece = from.squarePiece;
+            from.squarePiece = null;
+            to.squarePiece.updatePosition(to.squarePosition);
+        }
+    }
+
+}
