@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5688469455129727059}
   m_Layer: 0
   m_Name: Black Pawn
-  m_TagString: Untagged
+  m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,8 +110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23debe592f457b3449ee44a64b9b3924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: 0
+  pieceName: 
   isHeld: 0
   isOnBoard: 0
+  shouldMove: 0
+  desiredPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &5688469455129727059
 Rigidbody:
   m_ObjectHideFlags: 0

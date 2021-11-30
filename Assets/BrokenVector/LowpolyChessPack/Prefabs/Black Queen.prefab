@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2715159090655495818}
   m_Layer: 0
   m_Name: Black Queen
-  m_TagString: Untagged
+  m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,8 +110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab38198052f8db4795353711a97223d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: 0
+  pieceName: 
   isHeld: 0
   isOnBoard: 0
+  shouldMove: 0
+  desiredPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &2715159090655495818
 Rigidbody:
   m_ObjectHideFlags: 0

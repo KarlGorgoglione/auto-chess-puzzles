@@ -110,8 +110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d3b5f9d2a77f84ab450561bf56a727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: 0
+  pieceName: 
   isHeld: 0
   isOnBoard: 0
+  shouldMove: 0
+  desiredPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &5181306254198245337
 Rigidbody:
   m_ObjectHideFlags: 0

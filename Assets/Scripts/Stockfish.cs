@@ -61,4 +61,23 @@ public class Stockfish : MonoBehaviour
         return nextMove;
     }
 
+    public string GetBestMove(string fen)
+    {
+        nextMove = null;
+        string setupString = "position fen " + fen;
+
+        stockfish.StandardInput.WriteLine(setupString);
+        // Process for 5 seconds
+        string processString = "go movetime 500";
+
+        // Process 20 deep
+        // string processString = "go depth 20";
+
+        stockfish.StandardInput.WriteLine(processString);
+
+        while (nextMove == null) { }
+
+        return nextMove;
+    }
+
 }

@@ -209,11 +209,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4517848
+      value: 3.451785
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -339,10 +339,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Pawn (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 138226, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -353,7 +349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -494,25 +490,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Pawn
       objectReference: {fileID: 0}
-    - target: {fileID: 138226, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_RootOrder
       value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -520,7 +500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -646,25 +626,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Pawn
       objectReference: {fileID: 0}
-    - target: {fileID: 104878, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_RootOrder
       value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -672,7 +636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -706,10 +670,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2328314, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 434aef809e480cd4ebfb7ab6693053c6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
 --- !u!4 &142367224 stripped
@@ -732,10 +692,6 @@ PrefabInstance:
     - target: {fileID: 196802, guid: b6c7ad354ac474944ba26b2895a59759, type: 3}
       propertyPath: m_Name
       value: Black Knight (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 196802, guid: b6c7ad354ac474944ba26b2895a59759, type: 3}
-      propertyPath: m_TagString
-      value: Piece
       objectReference: {fileID: 0}
     - target: {fileID: 464390, guid: b6c7ad354ac474944ba26b2895a59759, type: 3}
       propertyPath: m_RootOrder
@@ -804,25 +760,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Pawn (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 138226, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -830,7 +770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1442,25 +1382,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Pawn (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 138226, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1468,7 +1392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1520,25 +1444,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Pawn (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 138226, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1546,7 +1454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1598,21 +1506,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Pawn (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 104878, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.45178476
+      value: 0.4517851
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2417,25 +2321,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Pawn (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 138226, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2443,7 +2331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2945,8 +2833,8 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 68.1
-  orthographic: 1
+  field of view: 77.5
+  orthographic: 0
   orthographic size: 5.19
   m_Depth: -1
   m_CullingMask:
@@ -2970,13 +2858,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.47597206, y: -0, z: -0, w: 0.87946045}
+  m_LocalRotation: {x: 0.5328763, y: 0, z: 0, w: 0.8461932}
   m_LocalPosition: {x: 0, y: 5.89, z: -3.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 56.845, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 64.4, y: 0, z: 0}
 --- !u!1001 &963687161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3062,10 +2950,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Rook (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 125018, guid: 9d3e9c36668dcfe44b524760a4c3a3b5, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 411790, guid: 9d3e9c36668dcfe44b524760a4c3a3b5, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -3133,25 +3017,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Pawn (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 104878, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_RootOrder
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3159,7 +3027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3193,10 +3061,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2328314, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 434aef809e480cd4ebfb7ab6693053c6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
 --- !u!4 &996573758 stripped
@@ -4116,6 +3980,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stockfish: {fileID: 1024309898}
   fen: 
+  turn: 
+  isCheckmate: 0
 --- !u!4 &1274681430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8696146889183191324, guid: 8a144a1888d287d4eb0a3a2500d51f6f, type: 3}
@@ -4285,25 +4151,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Pawn (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 138226, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4311,7 +4161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5492,25 +5342,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Pawn (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 138226, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5518,7 +5352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 484090, guid: edd4f3477fd5a8b4599bf6c0dac39f1d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5787,10 +5621,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Rook
       objectReference: {fileID: 0}
-    - target: {fileID: 114028, guid: 43ef2ba32fda59c42a1410ea490d494b, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 432802, guid: 43ef2ba32fda59c42a1410ea490d494b, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -5835,14 +5665,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6465112, guid: 43ef2ba32fda59c42a1410ea490d494b, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6465112, guid: 43ef2ba32fda59c42a1410ea490d494b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43ef2ba32fda59c42a1410ea490d494b, type: 3}
 --- !u!4 &1756950958 stripped
@@ -5860,10 +5682,6 @@ PrefabInstance:
     - target: {fileID: 125018, guid: 9d3e9c36668dcfe44b524760a4c3a3b5, type: 3}
       propertyPath: m_Name
       value: Black Rook
-      objectReference: {fileID: 0}
-    - target: {fileID: 125018, guid: 9d3e9c36668dcfe44b524760a4c3a3b5, type: 3}
-      propertyPath: m_TagString
-      value: Piece
       objectReference: {fileID: 0}
     - target: {fileID: 411790, guid: 9d3e9c36668dcfe44b524760a4c3a3b5, type: 3}
       propertyPath: m_RootOrder
@@ -5926,10 +5744,6 @@ PrefabInstance:
     - target: {fileID: 196866, guid: a71fd906a2159e247ab4d632e46947db, type: 3}
       propertyPath: m_Name
       value: Black Bishop (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 196866, guid: a71fd906a2159e247ab4d632e46947db, type: 3}
-      propertyPath: m_TagString
-      value: Piece
       objectReference: {fileID: 0}
     - target: {fileID: 470440, guid: a71fd906a2159e247ab4d632e46947db, type: 3}
       propertyPath: m_RootOrder
@@ -6203,33 +6017,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Pawn (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 104878, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.548215
+      value: -0.5482149
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6263,10 +6061,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2328314, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 434aef809e480cd4ebfb7ab6693053c6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
 --- !u!4 &1899496971 stripped
@@ -6507,25 +6301,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Pawn (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 104878, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_RootOrder
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6533,7 +6311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6928,10 +6706,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Bishop
       objectReference: {fileID: 0}
-    - target: {fileID: 196866, guid: a71fd906a2159e247ab4d632e46947db, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 470440, guid: a71fd906a2159e247ab4d632e46947db, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -7142,33 +6916,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Pawn (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 104878, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5482152
+      value: -1.5482149
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7202,10 +6960,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2328314, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 434aef809e480cd4ebfb7ab6693053c6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
 --- !u!4 &2100839570 stripped
@@ -7367,21 +7121,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Pawn (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 104878, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4517848
+      value: 1.4517851
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7414,10 +7164,6 @@ PrefabInstance:
     - target: {fileID: 473602, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6441710, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
-      propertyPath: m_Convex
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48d5ea4ff810d0e4ea36af7235dd5fd7, type: 3}
@@ -7579,10 +7325,6 @@ PrefabInstance:
     - target: {fileID: 184594, guid: 1f7a3b3d104b8e44cb39f5356ae1d0bb, type: 3}
       propertyPath: m_Name
       value: Black Queen
-      objectReference: {fileID: 0}
-    - target: {fileID: 184594, guid: 1f7a3b3d104b8e44cb39f5356ae1d0bb, type: 3}
-      propertyPath: m_TagString
-      value: Piece
       objectReference: {fileID: 0}
     - target: {fileID: 435252, guid: 1f7a3b3d104b8e44cb39f5356ae1d0bb, type: 3}
       propertyPath: m_RootOrder

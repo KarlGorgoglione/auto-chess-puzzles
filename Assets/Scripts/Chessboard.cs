@@ -17,6 +17,8 @@ public class Chessboard : MonoBehaviour
 
     public string turn;
 
+    public bool isCheckmate;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class Chessboard : MonoBehaviour
         listMoves = new List<(Square, Square)>();
         turn = "w";
         StartCoroutine(MovePieceTest());
+        isCheckmate = false;
     }
 
     // Update is called once per frame
@@ -101,15 +104,25 @@ public class Chessboard : MonoBehaviour
     IEnumerator MovePieceTest()
     {
         yield return new WaitForSeconds(1);
+        updateFen();
         if (GameManager.Instance.mode == GameManager.Mode.Placement) GameManager.Instance.mode = GameManager.Mode.Game;
-        string move = stockfish.GetBestMove(listMoves.ConvertAll<string>(elem => $"{elem.Item1.name.ToLower()}{elem.Item2.name.ToLower()}").ToArray());
+        //string move = stockfish.GetBestMove(listMoves.ConvertAll<string>(elem => $"{elem.Item1.name.ToLower()}{elem.Item2.name.ToLower()}").ToArray());
+        string move = stockfish.GetBestMove(fen);
 
-        (int, int) fromIdx = (letters.IndexOf(move[0].ToString().ToUpper()),(int.Parse(move[1].ToString()) - 1));
-        (int, int) toIdx = (letters.IndexOf(move[2].ToString().ToUpper()), (int.Parse(move[3].ToString()) - 1));
+        if (move != "(none)")
+        {
+            (int, int) fromIdx = (letters.IndexOf(move[0].ToString().ToUpper()), (int.Parse(move[1].ToString()) - 1));
+            (int, int) toIdx = (letters.IndexOf(move[2].ToString().ToUpper()), (int.Parse(move[3].ToString()) - 1));
 
-        listMoves.Add((board[fromIdx.Item1, fromIdx.Item2], board[toIdx.Item1, toIdx.Item2]));
-        MovePiece(board[fromIdx.Item1, fromIdx.Item2], board[toIdx.Item1, toIdx.Item2]);
-        StartCoroutine(MovePieceTest());
+            listMoves.Add((board[fromIdx.Item1, fromIdx.Item2], board[toIdx.Item1, toIdx.Item2]));
+            MovePiece(board[fromIdx.Item1, fromIdx.Item2], board[toIdx.Item1, toIdx.Item2]);
+            StartCoroutine(MovePieceTest());
+        }
+        else // Checkmate
+        {
+            isCheckmate = true;
+            Debug.Log("CHECKMATE");
+        }
     }
 
     void updateFen()
