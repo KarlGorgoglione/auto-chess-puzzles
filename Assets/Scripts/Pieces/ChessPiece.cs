@@ -5,8 +5,6 @@ using UnityEngine;
 public class ChessPiece : MonoBehaviour
 {
 
-    protected Camera mainCamera;
-
     public enum PieceColor { Black, White };
 
     [SerializeField]
@@ -40,7 +38,6 @@ public class ChessPiece : MonoBehaviour
 
     private void Awake()
     {
-        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         movementTime = 1f;
         elapsedTime = float.MaxValue;
     }
@@ -62,29 +59,35 @@ public class ChessPiece : MonoBehaviour
 
     void OnMouseDown()
     {
-        startPos = transform.position;
-        dist = Camera.main.WorldToScreenPoint(transform.position);
-        posX = Input.mousePosition.x - dist.x;
-        posY = Input.mousePosition.y - dist.y;
-        posZ = Input.mousePosition.z - dist.z;
+        if (color == PieceColor.White)
+        {
+            startPos = transform.position;
+            dist = Camera.main.WorldToScreenPoint(transform.position);
+            posX = Input.mousePosition.x - dist.x;
+            posY = Input.mousePosition.y - dist.y;
+            posZ = Input.mousePosition.z - dist.z;
+        }
     }
 
     private void OnMouseDrag()
     {
-        float disX = Input.mousePosition.x - posX;
-        float disY = Input.mousePosition.y - posY;
-        float disZ = Input.mousePosition.z - posZ;
-        Vector3 lastPos = Camera.main.ScreenToWorldPoint(new Vector3(disX, disY, disZ));
-        if (isOnBoard)
+        if (color == PieceColor.White)
         {
-            transform.position = new Vector3(
-                MathTools.CustomRound(-0.5f, 0.5f, lastPos.x),
-                startPos.y,
-                MathTools.CustomRound(-0.5f, 0.5f, lastPos.z));
-        }
-        else
-        {
-            transform.position = new Vector3(lastPos.x, startPos.y, lastPos.z);
+            float disX = Input.mousePosition.x - posX;
+            float disY = Input.mousePosition.y - posY;
+            float disZ = Input.mousePosition.z - posZ;
+            Vector3 lastPos = Camera.main.ScreenToWorldPoint(new Vector3(disX, disY, disZ));
+            if (isOnBoard)
+            {
+                transform.position = new Vector3(
+                    MathTools.CustomRound(-0.5f, 0.5f, lastPos.x),
+                    startPos.y,
+                    MathTools.CustomRound(-0.5f, 0.5f, lastPos.z));
+            }
+            else
+            {
+                transform.position = new Vector3(lastPos.x, startPos.y, lastPos.z);
+            }
         }
 
         /*
@@ -151,7 +154,10 @@ public class ChessPiece : MonoBehaviour
 
     private void OnMouseUp()
     {
-        isHeld = false;
-        if (activeSquare.squarePiece != this) transform.position = startPos;
+        if (color == PieceColor.White)
+        {
+            isHeld = false;
+            if (activeSquare.squarePiece != this) transform.position = startPos;
+        }
     }
 }

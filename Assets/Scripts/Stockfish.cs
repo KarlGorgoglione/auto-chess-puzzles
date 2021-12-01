@@ -70,7 +70,7 @@ public class Stockfish : MonoBehaviour
         stockfish.StandardInput.WriteLine(setupString);
         Debug.Log("Write the FEN to Stockfish");
         // Process for 5 seconds
-        string processString = "go movetime 500";
+        string processString = "go movetime 250";
 
         // Process 20 deep
         // string processString = "go depth 20";
