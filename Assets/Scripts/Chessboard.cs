@@ -23,6 +23,8 @@ public class Chessboard : MonoBehaviour
 
     Dictionary<string, int> fenCounts;
 
+    public int nbMoves;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,7 @@ public class Chessboard : MonoBehaviour
             }
         }
         listMoves = new List<(Square, Square)>();
-        turn = "w";
+        turn = "b";
         //StartCoroutine(MovePieceTest());
         isCheckmate = false;
         isDraw = false;
@@ -103,6 +105,7 @@ public class Chessboard : MonoBehaviour
         }
         turn = turn == "w" ? "b" : "w";
         updateFen();
+        nbMoves++;
     }
 
     public void StartGame()
@@ -110,8 +113,8 @@ public class Chessboard : MonoBehaviour
         if (GameManager.Instance.mode == GameManager.Mode.Placement)
         {
             fenCounts = new Dictionary<string, int>();
+            nbMoves = 0;
             updateFen();
-            Debug.Log(fen);
             StartCoroutine(MovePieceTest());
         }
     }
@@ -137,12 +140,11 @@ public class Chessboard : MonoBehaviour
         {
             if (isDraw)
             {
-                Debug.Log("DRAW");
+                GameManager.Instance.EndGame(false);
             }
             else
             {
-                isCheckmate = true;
-                Debug.Log("CHECKMATE");
+                GameManager.Instance.EndGame(turn == "b");
             }
         }
     }
