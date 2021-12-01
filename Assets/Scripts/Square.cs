@@ -40,7 +40,7 @@ public class Square : MonoBehaviour
     public void assignPiece(ChessPiece piece)
     {
         squarePiece = piece;
-        piece.updatePosition(squarePosition);
+        squarePiece.updatePosition(squarePosition);
     }
 
     public void removePiece()

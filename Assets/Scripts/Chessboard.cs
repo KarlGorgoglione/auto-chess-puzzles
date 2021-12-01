@@ -25,6 +25,9 @@ public class Chessboard : MonoBehaviour
 
     public int nbMoves;
 
+    [SerializeField]
+    GameObject whiteQueenPrefab, blackQueenPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +79,24 @@ public class Chessboard : MonoBehaviour
         }
     }
 
+    bool checkPromotion(Square from, Square to)
+    {
+        if (from.squarePiece as Pawn != null && (to.gridPosition.Item2 == 0 || to.gridPosition.Item2 == 7)) {
+            return true;
+        }
+        return false;
+    }
+
+    void makePromotion(Square from, Square to)
+    {
+
+        from.removePiece();
+        GameObject prefab = turn == "b" ? blackQueenPrefab : whiteQueenPrefab;
+        Vector3 pos = new Vector3(to.transform.position.x, 0.1f, to.transform.position.z);
+        GameObject queen = Instantiate(prefab, pos, prefab.transform.rotation);
+        to.assignPiece(queen.GetComponent<Queen>());
+    }
+
     public void MovePiece(Square from, Square to)
     {
         if (from.squarePiece != null && to.squarePiece == null)
@@ -88,16 +109,32 @@ public class Chessboard : MonoBehaviour
             else
             {
                 Debug.Log($"Moving the piece {from.squarePiece.pieceName} to an empty square");
-                to.assignPiece(from.squarePiece);
-                from.squarePiece = null;
+                if(checkPromotion(from, to))
+                {
+                    Debug.Log("ON PROMOUVOIT");
+                    makePromotion(from, to);
+                }
+                else
+                {
+                    to.assignPiece(from.squarePiece);
+                    from.squarePiece = null;
+                }
             }
         }
         else if (from.squarePiece != null && to.squarePiece != null)
         {
             Debug.Log($"Moving the piece {from.squarePiece.pieceName} to take {to.squarePiece.pieceName}");
             to.removePiece();
-            to.assignPiece(from.squarePiece);
-            from.squarePiece = null;
+            if (checkPromotion(from, to))
+            {
+                Debug.Log("ON PROMOUVOIT");
+                makePromotion(from, to);
+            }
+            else
+            {
+                to.assignPiece(from.squarePiece);
+                from.squarePiece = null;
+            }
         }
         else
         {
@@ -114,6 +151,7 @@ public class Chessboard : MonoBehaviour
         {
             fenCounts = new Dictionary<string, int>();
             nbMoves = 0;
+            stockfish.StartStockfish();
             updateFen();
             StartCoroutine(MovePieceTest());
         }
@@ -125,8 +163,9 @@ public class Chessboard : MonoBehaviour
         
         if (GameManager.Instance.mode == GameManager.Mode.Placement) GameManager.Instance.mode = GameManager.Mode.Game;
         //string move = stockfish.GetBestMove(listMoves.ConvertAll<string>(elem => $"{elem.Item1.name.ToLower()}{elem.Item2.name.ToLower()}").ToArray());
+        Debug.Log("Getting the best move from Stockfish");
         string move = stockfish.GetBestMove(fen);
-
+        Debug.Log(move);
         if (move != "(none)" && !isDraw)
         {
             (int, int) fromIdx = (letters.IndexOf(move[0].ToString().ToUpper()), (int.Parse(move[1].ToString()) - 1));
@@ -192,6 +231,7 @@ public class Chessboard : MonoBehaviour
         {
             fenCounts.Add(fen, 1);
         }
+        Debug.Log(fen);
     }
 
     void check3MoveRep()

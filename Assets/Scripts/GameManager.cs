@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine;
 
@@ -15,6 +16,9 @@ public class GameManager : MonoBehaviour
     GameObject winScreen;
 
     [SerializeField]
+    GameObject loseScreen;
+
+    [SerializeField]
     TextMeshProUGUI score;
 
     [SerializeField]
@@ -22,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     Chessboard chessBoard;
+
+    [SerializeField]
+    int lowGrade, middleGrade, highGrade;
 
     public float groundLevel;
 
@@ -58,14 +65,25 @@ public class GameManager : MonoBehaviour
     public void EndGame(bool isWon)
     {
         Debug.Log(isWon);
-        if (!isWon) mode = Mode.Lost;
+        if (!isWon)
+        {
+            mode = Mode.Lost;
+            loseScreen.SetActive(true);
+        }
         else
         {
             mode = Mode.Won;
             winScreen.SetActive(true);
             score.text = $"You checkmated in {chessBoard.nbMoves} moves";
             Sprite goldQueen = Resources.Load<Sprite>("Sprites/queen2_gold");
-            queens.ForEach(queen => queen.sprite = goldQueen);
+            if (chessBoard.nbMoves < lowGrade) queens[0].sprite = goldQueen;
+            if (chessBoard.nbMoves < middleGrade) queens[1].sprite = goldQueen;
+            if (chessBoard.nbMoves < highGrade) queens[2].sprite = goldQueen;
         }
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
