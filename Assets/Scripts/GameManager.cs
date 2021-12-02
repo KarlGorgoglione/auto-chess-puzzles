@@ -10,9 +10,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField]
-    Button startButton;
-
-    [SerializeField]
     GameObject winScreen;
 
     [SerializeField]
@@ -22,10 +19,15 @@ public class GameManager : MonoBehaviour
     TextMeshProUGUI score;
 
     [SerializeField]
+    Button nextLevelButton;
+
+    [SerializeField]
     List<Image> queens;
 
     [SerializeField]
     Chessboard chessBoard;
+
+    
 
     [SerializeField]
     int lowGrade, middleGrade, highGrade;
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviour
            
         Instance = this;
         mode = Mode.Placement;
+
         Debug.Log(SystemInfo.operatingSystem);
     }
 
