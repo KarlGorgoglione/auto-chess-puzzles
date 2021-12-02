@@ -76,9 +76,23 @@ public class GameManager : MonoBehaviour
             winScreen.SetActive(true);
             score.text = $"You checkmated in {chessBoard.nbMoves} moves";
             Sprite goldQueen = Resources.Load<Sprite>("Sprites/queen2_gold");
-            if (chessBoard.nbMoves < lowGrade) queens[0].sprite = goldQueen;
-            if (chessBoard.nbMoves < middleGrade) queens[1].sprite = goldQueen;
-            if (chessBoard.nbMoves < highGrade) queens[2].sprite = goldQueen;
+            int grade = 0;
+            if (chessBoard.nbMoves < lowGrade)
+            {
+                queens[0].sprite = goldQueen;
+                grade++;
+            }
+            if (chessBoard.nbMoves < middleGrade)
+            {
+                queens[1].sprite = goldQueen;
+                grade++;
+            }
+            if (chessBoard.nbMoves < highGrade)
+            {
+                queens[2].sprite = goldQueen;
+                grade++;
+            }
+            DataManager.Instance.SavePuzzle(SceneManager.GetActiveScene().buildIndex - 1, grade);
         }
     }
 
