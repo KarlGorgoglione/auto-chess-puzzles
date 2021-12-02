@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { get; private set; }
 
     [SerializeField]
     Button startButton;
@@ -37,23 +37,17 @@ public class GameManager : MonoBehaviour
     public Mode mode;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (Instance != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
+            return;
         }
-        else
-        {
-            Instance = this;
-        }
+           
+        Instance = this;
         mode = Mode.Placement;
         Debug.Log(SystemInfo.operatingSystem);
-    }
-
-    void Awake()
-    {
-        groundLevel = 6f;
     }
 
     // Update is called once per frame
@@ -99,5 +93,10 @@ public class GameManager : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
