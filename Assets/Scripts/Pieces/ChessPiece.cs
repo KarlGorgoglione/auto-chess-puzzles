@@ -40,11 +40,11 @@ public class ChessPiece : MonoBehaviour
     {
         movementTime = 1f;
         elapsedTime = float.MaxValue;
+        plane = new Plane(Vector3.up, Vector3.zero); // ground plane
     }
 
     private void Start()
     {
-        plane = new Plane(Vector3.up, Vector3.up * GameManager.Instance.groundLevel); // ground plane
     }
 
     void Update()
@@ -71,62 +71,29 @@ public class ChessPiece : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (color == PieceColor.White)
-        {
-            float disX = Input.mousePosition.x - posX;
-            float disY = Input.mousePosition.y - posY;
-            float disZ = Input.mousePosition.z - posZ;
-            Vector3 lastPos = Camera.main.ScreenToWorldPoint(new Vector3(disX, disY, disZ));
-            if (isOnBoard)
-            {
-                transform.position = new Vector3(
-                    MathTools.CustomRound(-0.5f, 0.5f, lastPos.x),
-                    startPos.y,
-                    MathTools.CustomRound(-0.5f, 0.5f, lastPos.z));
-            }
-            else
-            {
-                transform.position = new Vector3(lastPos.x, startPos.y, lastPos.z);
-            }
-        }
-
-        /*
+        
         // with Raycast
-        Debug.Log(plane);
+        Debug.Log(plane.normal);
         isHeld = true;
-        Ray ray = mainCamera.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, mainCamera.transform.position.z - 0.1f);
-        Debug.Log(ray);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         float distance; // the distance from the ray origin to the ray intersection of the plane
 
         if (plane.Raycast(ray, out distance))
         {
-            Debug.Log("HIT");
             Vector3 dest = ray.GetPoint(distance);
             if (isOnBoard)
             {
                 transform.position = new Vector3(
-                    -MathTools.CustomRound(-0.5f, 0.5f, dest.x),
+                    MathTools.CustomRound(-0.5f, 0.5f, dest.x),
                     dest.y,
-                    -MathTools.CustomRound(-0.5f, 0.5f, dest.z)); // distance along the ray
+                    MathTools.CustomRound(-0.5f, 0.5f, dest.z)); // distance along the ray
             }
             else
             {
                 transform.position = dest;
             }
-        }*/
-
-
-        /*Vector3 coords = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, mainCamera.transform.position.z - 1));
-        if (isOnBoard)
-        {
-            coords = new Vector3(-MathTools.CustomRound(-0.5f, 0.5f, coords.x), transform.position.y, -MathTools.CustomRound(-0.5f, 0.5f, coords.z) - 10f);
-        }
-        else
-        {
-            coords = new Vector3(-coords.x, transform.position.y, -coords.z - 10f);
         }
 
-        transform.position = coords;*/
     }
 
     private void OnTriggerEnter(Collider other)

@@ -5,6 +5,7 @@ using System.IO;
 using UnityEngine;
 using UnityEditor;
 using Newtonsoft.Json;
+using UnityEngine.SceneManagement;
 
 public class DataManager : MonoBehaviour
 {
@@ -34,13 +35,27 @@ public class DataManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        scenes = EditorBuildSettings.scenes.Where(scene => scene.enabled && scene.path.ToLower().Contains("puzzle")).Select(scene => scene.path).ToArray();
+
+        scenes = getAllScenesPath().Where(path => path.ToLower().Contains("puzzle")).ToArray();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    string[] getAllScenesPath()
+    {
+        // Get build scenes
+        var sceneNumber = SceneManager.sceneCountInBuildSettings;
+        string[] arrayOfNames;
+        arrayOfNames = new string[sceneNumber];
+        for (int i = 0; i < sceneNumber; i++)
+        {
+            arrayOfNames[i] = Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i));
+        }
+        return arrayOfNames;
     }
 
     public void LoginUser(string user)
@@ -70,7 +85,7 @@ public class DataManager : MonoBehaviour
 
     int getNumberOfPuzzles()
     {
-        return EditorBuildSettings.scenes.Where(scene => scene.enabled && scene.path.ToLower().Contains("puzzle")).Select(scene => scene.path).Count();
+        return getAllScenesPath().Where(scene => scene.ToLower().Contains("puzzle")).Count();
     }
 
     public string GetActivePath()

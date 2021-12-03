@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Chessboard : MonoBehaviour
 {
@@ -28,10 +29,21 @@ public class Chessboard : MonoBehaviour
     [SerializeField]
     GameObject whiteQueenPrefab, blackQueenPrefab;
 
+    [SerializeField]
+    CinemachineVirtualCamera camera;
+
+    Quaternion cameraInitRotation;
+
+    bool rotateCamera;
+    Vector3 newRotation = new Vector3(50f, 0f, 0f);
+    float rotationElapsedTime, rotationTime;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        cameraInitRotation = camera.transform.rotation;
+        rotateCamera = false;
+        rotationTime = 2f;
         board = new Square[8, 8];
         for (int i =0; i < 8; i++)
         {
@@ -52,7 +64,17 @@ public class Chessboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (rotateCamera)
+        {
+            
+            camera.transform.eulerAngles = Vector3.Lerp(cameraInitRotation.eulerAngles, newRotation, Mathf.SmoothStep(0, 1, rotationElapsedTime / rotationTime));
+            rotationElapsedTime += Time.deltaTime;
+        }
+        if (rotationElapsedTime > rotationTime)
+        {
+            rotationElapsedTime = 0f;
+            rotateCamera = false;
+        }
     }
 
     bool willCastle(Square from, Square to)
@@ -149,6 +171,8 @@ public class Chessboard : MonoBehaviour
     {
         if (GameManager.Instance.mode == GameManager.Mode.Placement)
         {
+            rotateCamera = true;
+            rotationElapsedTime = 0f;
             fenCounts = new Dictionary<string, int>();
             nbMoves = 0;
             stockfish.StartStockfish();

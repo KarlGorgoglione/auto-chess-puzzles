@@ -20,6 +20,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     GameObject listPuzzles;
 
+    List<Puzzle> listPuzzleObject;
+
     bool isEnterPressed;
     float enterPressedElapsedTime;
 
@@ -31,11 +33,16 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape) && puzzlesScreen.activeInHierarchy)
+        {
+            NavigateToMenu();
+        }
         if (Input.GetKeyDown(KeyCode.Return) && !isEnterPressed)
         {
             isEnterPressed = true;
             enterPressedElapsedTime = 0f;
         }
+
         if (isEnterPressed)
         {
             enterPressedElapsedTime += Time.deltaTime;
@@ -53,12 +60,18 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    void NavigateToMenu()
+    {
+        puzzlesScreen.SetActive(false);
+        loginScreen.SetActive(false);
+        menuScreen.SetActive(true);
+    }
+
     public void Login()
     {
         DataManager.Instance.LoginUser(usernameText.text);
 
-        loginScreen.SetActive(false);
-        menuScreen.SetActive(true);
+        NavigateToMenu();
 
     }
 
@@ -75,6 +88,7 @@ public class MenuManager : MonoBehaviour
             puzzle.puzzleName = scenes[i].Split('/').Last();
             puzzle.populatePuzzle(i + 1, DataManager.Instance.grades[i]);
             puzzle.transform.SetParent(listPuzzles.transform);
+            listPuzzleObject.Add(puzzle);
         }
     }
 }

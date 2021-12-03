@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,8 +27,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     Chessboard chessBoard;
-
-    
 
     [SerializeField]
     int lowGrade, middleGrade, highGrade;

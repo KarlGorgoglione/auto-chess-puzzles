@@ -4249,10 +4249,10 @@ RectTransform:
   m_Father: {fileID: 820144674}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1104, y: 538}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &895610558
 PrefabInstance:
@@ -4427,6 +4427,7 @@ MonoBehaviour:
   nbMoves: 0
   whiteQueenPrefab: {fileID: 103078, guid: 6f38c700bedefe64f8364436528e5c3d, type: 3}
   blackQueenPrefab: {fileID: 184594, guid: 1f7a3b3d104b8e44cb39f5356ae1d0bb, type: 3}
+  camera: {fileID: 1976612023}
 --- !u!4 &935540210
 Transform:
   m_ObjectHideFlags: 0
@@ -7005,10 +7006,10 @@ RectTransform:
   m_Father: {fileID: 820144674}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1104, y: 538}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1576246033
 PrefabInstance:
@@ -7246,7 +7247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e93d2e8c6a5b149a6660097188d4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 1589950422}
   winScreen: {fileID: 873346765}
   loseScreen: {fileID: 1566755582}
   score: {fileID: 1996648511}
@@ -9136,7 +9136,7 @@ GameObject:
   - component: {fileID: 1976612024}
   - component: {fileID: 1976612023}
   m_Layer: 0
-  m_Name: CM vcam1
+  m_Name: CinemachineCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
