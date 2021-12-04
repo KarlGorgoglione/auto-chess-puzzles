@@ -31,12 +31,23 @@ public class ChessPiece : MonoBehaviour
 
     Square activeSquare;
 
+    MeshRenderer meshRenderer;
+
+    [SerializeField]
+    bool isMovable;
+
 
     private void Awake()
     {
         movementTime = 0.7f;
         elapsedTime = float.MaxValue;
         plane = new Plane(Vector3.up, Vector3.zero); // ground plane
+        meshRenderer = GetComponent<MeshRenderer>();
+        if(!isMovable && color == PieceColor.White)
+        {
+            meshRenderer.material.SetFloat("_ShnIntense", 0.5f);
+            meshRenderer.material.SetFloat("_ShnRange", 0.5f);
+        }
     }
 
     private void Start()
@@ -53,9 +64,16 @@ public class ChessPiece : MonoBehaviour
         
     }
 
+    public void resetColor()
+    {
+        meshRenderer.material.SetFloat("_ShnIntense", 0f);
+        meshRenderer.material.SetFloat("_ShnRange", 0f);
+    }
+
+
     private void OnMouseDrag()
     {
-        if (color == PieceColor.White)
+        if (color == PieceColor.White && isMovable)
         {
             // with Raycast
             Debug.Log(plane.normal);

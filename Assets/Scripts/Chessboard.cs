@@ -157,6 +157,13 @@ public class Chessboard : MonoBehaviour
             nbMoves = 0;
             stockfish.StartStockfish();
             updateFen();
+            for(int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (board[i, j].squarePiece != null) board[i, j].squarePiece.resetColor();
+                }
+            }
             StartCoroutine(MovePieceTest());
         }
     }

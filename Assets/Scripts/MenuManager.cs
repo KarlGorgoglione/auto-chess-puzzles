@@ -29,6 +29,7 @@ public class MenuManager : MonoBehaviour
     {
         usernameText.onEndEdit.AddListener((_) => StartCoroutine(checkEnter()));
         isEnterPressed = false;
+        listPuzzleObject = new List<Puzzle>();
     }
 
     private void Update()
@@ -79,6 +80,11 @@ public class MenuManager : MonoBehaviour
 
     public void Puzzles()
     {
+        foreach(Puzzle puzzle in listPuzzleObject)
+        {
+            Destroy(puzzle.gameObject);
+        }
+        listPuzzleObject = new List<Puzzle>();
         menuScreen.SetActive(false);
         puzzlesScreen.SetActive(true);
         string[] scenes = DataManager.Instance.scenes;
