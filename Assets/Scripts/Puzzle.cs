@@ -16,16 +16,26 @@ public class Puzzle : MonoBehaviour
     [SerializeField]
     List<Image> queens;
 
+    public Image loadingScreen;
+
+    bool isLoadingEnabled;
+    float elapsedTransitionTime, transitionTime;
+
     // Start is called before the first frame update
     void Awake()
     {
-        //colorQueens(nbQueens);
+        transitionTime = 1f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (isLoadingEnabled)
+        {
+            loadingScreen.color = new Color(0, 0, 0, Mathf.Lerp(0, 1, elapsedTransitionTime / transitionTime));
+            elapsedTransitionTime += Time.deltaTime;
+        }
+        if (elapsedTransitionTime > transitionTime) isLoadingEnabled = false;
     }
 
     public void populatePuzzle(int nb, int grade)
@@ -40,6 +50,17 @@ public class Puzzle : MonoBehaviour
 
     public void loadPuzzle()
     {
+        loadingScreen.gameObject.SetActive(true);
+        elapsedTransitionTime = 0f;
+        isLoadingEnabled = true;
+        
+        StartCoroutine(loadScene());
+        
+    }
+
+    IEnumerator loadScene()
+    {
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(puzzleName.Split('.')[0]);
     }
 }

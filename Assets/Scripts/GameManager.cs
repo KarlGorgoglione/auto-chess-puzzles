@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
     GameObject loseScreen;
 
     [SerializeField]
+    GameObject tutorialScreen;
+
+    [SerializeField]
+    GameObject loadingScreen;
+
+    [SerializeField]
     TextMeshProUGUI score;
 
     [SerializeField]
@@ -37,6 +43,8 @@ public class GameManager : MonoBehaviour
 
     public Mode mode;
 
+    float transitionElapsedTime, transitionTime;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -49,13 +57,28 @@ public class GameManager : MonoBehaviour
         Instance = this;
         mode = Mode.Placement;
 
+        loadingScreen.SetActive(true);
+        transitionElapsedTime = 0f;
+        transitionTime = 0.7f;
+
         Debug.Log(SystemInfo.operatingSystem);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //startButton.enabled = mode == Mode.Placement;
+        if (loadingScreen.activeInHierarchy)
+        {
+            loadingScreen.GetComponent<Image>().color = new Color(0, 0, 0, Mathf.Lerp(1, 0, transitionElapsedTime / transitionTime));
+            transitionElapsedTime += Time.deltaTime;
+            if (transitionElapsedTime > transitionTime) loadingScreen.SetActive(false);
+        }
+        
+    }
+
+    public void hideTutorial()
+    {
+        tutorialScreen.SetActive(false);
     }
 
     public void EndGame(bool isWon)

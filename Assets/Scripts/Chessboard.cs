@@ -32,6 +32,9 @@ public class Chessboard : MonoBehaviour
     [SerializeField]
     CameraManager camera;
 
+    [SerializeField]
+    GameObject triggerGamePanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -157,7 +160,8 @@ public class Chessboard : MonoBehaviour
             nbMoves = 0;
             stockfish.StartStockfish();
             updateFen();
-            for(int i = 0; i < 8; i++)
+            triggerGamePanel.SetActive(false);
+            for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {

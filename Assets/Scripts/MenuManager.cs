@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class MenuManager : MonoBehaviour
@@ -13,6 +17,9 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField]
     GameObject loginScreen, menuScreen, puzzlesScreen;
+
+    [SerializeField]
+    Image loadingScreen;
 
     [SerializeField]
     GameObject puzzlePrefab;
@@ -75,7 +82,14 @@ public class MenuManager : MonoBehaviour
         NavigateToMenu();
 
     }
-
+    public void Exit()
+    {
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+            Application.Quit(); // original code to quit Unity player
+#endif
+    }
 
 
     public void Puzzles()
@@ -94,6 +108,7 @@ public class MenuManager : MonoBehaviour
             puzzle.puzzleName = scenes[i].Split('/').Last();
             puzzle.populatePuzzle(i + 1, DataManager.Instance.grades[i]);
             puzzle.transform.SetParent(listPuzzles.transform);
+            puzzle.loadingScreen = loadingScreen;
             listPuzzleObject.Add(puzzle);
         }
     }
