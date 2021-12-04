@@ -10,6 +10,11 @@ public class Stockfish : MonoBehaviour
 
     string nextMove;
 
+    bool isMoveReady;
+
+    [SerializeField]
+    Chessboard chessboard;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +24,11 @@ public class Stockfish : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isMoveReady)
+        {
+            chessboard.playNextMove(nextMove);
+            isMoveReady = false;
+        }
     }
 
     public void StartStockfish()
@@ -35,6 +44,7 @@ public class Stockfish : MonoBehaviour
             if (e.Data.Contains("bestmove"))
             {
                 nextMove = e.Data.Split(' ')[1];
+                isMoveReady = true;
             }
         });
         p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
@@ -44,7 +54,7 @@ public class Stockfish : MonoBehaviour
     }
 
  
-    public string GetBestMove(string[] moves)
+    public void GetBestMove(string[] moves)
     {
         nextMove = null;
 
@@ -57,13 +67,9 @@ public class Stockfish : MonoBehaviour
         // string processString = "go depth 20";
 
         stockfish.StandardInput.WriteLine(processString);
-
-        while (nextMove == null) { }
-
-        return nextMove;
     }
 
-    public string GetBestMove(string fen)
+    public void GetBestMove(string fen)
     {
         nextMove = null;
         string setupString = "position fen " + fen;
@@ -76,13 +82,10 @@ public class Stockfish : MonoBehaviour
         // string processString = "go depth 20";
 
         stockfish.StandardInput.WriteLine(processString);
-        while (nextMove == null) { }
-
         /*if (nextMove[nextMove.Length-1] == 'q')
         {
             return nextMove.Replace("q", string.Empty);
         }*/
-        return nextMove;
     }
 
 }

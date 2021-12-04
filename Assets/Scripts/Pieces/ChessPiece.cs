@@ -27,18 +27,14 @@ public class ChessPiece : MonoBehaviour
 
     Plane plane;
 
-    Vector3 dist;
     Vector3 startPos;
-    float posX;
-    float posZ;
-    float posY;
 
     Square activeSquare;
 
 
     private void Awake()
     {
-        movementTime = 1f;
+        movementTime = 0.7f;
         elapsedTime = float.MaxValue;
         plane = new Plane(Vector3.up, Vector3.zero); // ground plane
     }
@@ -57,43 +53,33 @@ public class ChessPiece : MonoBehaviour
         
     }
 
-    void OnMouseDown()
+    private void OnMouseDrag()
     {
         if (color == PieceColor.White)
         {
-            startPos = transform.position;
-            dist = Camera.main.WorldToScreenPoint(transform.position);
-            posX = Input.mousePosition.x - dist.x;
-            posY = Input.mousePosition.y - dist.y;
-            posZ = Input.mousePosition.z - dist.z;
-        }
-    }
+            // with Raycast
+            Debug.Log(plane.normal);
+            isHeld = true;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            float distance; // the distance from the ray origin to the ray intersection of the plane
 
-    private void OnMouseDrag()
-    {
+            if (plane.Raycast(ray, out distance))
+            {
+                Vector3 dest = ray.GetPoint(distance);
+                if (isOnBoard)
+                {
+                    transform.position = new Vector3(
+                        MathTools.CustomRound(-0.5f, 0.5f, dest.x),
+                        dest.y,
+                        MathTools.CustomRound(-0.5f, 0.5f, dest.z)); // distance along the ray
+                }
+                else
+                {
+                    transform.position = dest;
+                }
+            }
+        }
         
-        // with Raycast
-        Debug.Log(plane.normal);
-        isHeld = true;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        float distance; // the distance from the ray origin to the ray intersection of the plane
-
-        if (plane.Raycast(ray, out distance))
-        {
-            Vector3 dest = ray.GetPoint(distance);
-            if (isOnBoard)
-            {
-                transform.position = new Vector3(
-                    MathTools.CustomRound(-0.5f, 0.5f, dest.x),
-                    dest.y,
-                    MathTools.CustomRound(-0.5f, 0.5f, dest.z)); // distance along the ray
-            }
-            else
-            {
-                transform.position = dest;
-            }
-        }
-
     }
 
     private void OnTriggerEnter(Collider other)

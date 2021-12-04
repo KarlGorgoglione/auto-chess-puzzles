@@ -4427,7 +4427,7 @@ MonoBehaviour:
   nbMoves: 0
   whiteQueenPrefab: {fileID: 103078, guid: 6f38c700bedefe64f8364436528e5c3d, type: 3}
   blackQueenPrefab: {fileID: 184594, guid: 1f7a3b3d104b8e44cb39f5356ae1d0bb, type: 3}
-  camera: {fileID: 1976612023}
+  camera: {fileID: 1976612025}
 --- !u!4 &935540210
 Transform:
   m_ObjectHideFlags: 0
@@ -7725,6 +7725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac5ae42aa316dd44a6c57c680e81e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chessboard: {fileID: 935540209}
 --- !u!4 &1671144996
 Transform:
   m_ObjectHideFlags: 0
@@ -8417,7 +8418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874312191}
   m_LocalRotation: {x: 0.29956144, y: 0.08312195, z: -0.026208244, w: 0.9500878}
-  m_LocalPosition: {x: -1.5646876, y: 6.3093395, z: -8.873781}
+  m_LocalPosition: {x: -1.7780541, y: 7.169704, z: -10.083842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8886,7 +8887,7 @@ MonoBehaviour:
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 11
+  m_CameraDistance: 12.5
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
@@ -9135,6 +9136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1976612024}
   - component: {fileID: 1976612023}
+  - component: {fileID: 1976612025}
   m_Layer: 0
   m_Name: CinemachineCam
   m_TagString: Untagged
@@ -9185,13 +9187,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976612022}
   m_LocalRotation: {x: 0.29956144, y: 0.08312195, z: -0.026208244, w: 0.9500878}
-  m_LocalPosition: {x: -1.5646876, y: 6.3093395, z: -8.873781}
+  m_LocalPosition: {x: -1.7780541, y: 7.169704, z: -10.083842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1934486877}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 35, y: 10, z: 0}
+--- !u!114 &1976612025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976612022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2308d92971f28c848adbae887de6278b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateCamera: 0
 --- !u!1 &1989133349
 GameObject:
   m_ObjectHideFlags: 0

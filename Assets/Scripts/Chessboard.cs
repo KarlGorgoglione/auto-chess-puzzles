@@ -30,20 +30,11 @@ public class Chessboard : MonoBehaviour
     GameObject whiteQueenPrefab, blackQueenPrefab;
 
     [SerializeField]
-    CinemachineVirtualCamera camera;
-
-    Quaternion cameraInitRotation;
-
-    bool rotateCamera;
-    Vector3 newRotation = new Vector3(50f, 0f, 0f);
-    float rotationElapsedTime, rotationTime;
+    CameraManager camera;
 
     // Start is called before the first frame update
     void Start()
     {
-        cameraInitRotation = camera.transform.rotation;
-        rotateCamera = false;
-        rotationTime = 2f;
         board = new Square[8, 8];
         for (int i =0; i < 8; i++)
         {
@@ -64,17 +55,7 @@ public class Chessboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rotateCamera)
-        {
-            
-            camera.transform.eulerAngles = Vector3.Lerp(cameraInitRotation.eulerAngles, newRotation, Mathf.SmoothStep(0, 1, rotationElapsedTime / rotationTime));
-            rotationElapsedTime += Time.deltaTime;
-        }
-        if (rotationElapsedTime > rotationTime)
-        {
-            rotationElapsedTime = 0f;
-            rotateCamera = false;
-        }
+
     }
 
     bool willCastle(Square from, Square to)
@@ -171,8 +152,7 @@ public class Chessboard : MonoBehaviour
     {
         if (GameManager.Instance.mode == GameManager.Mode.Placement)
         {
-            rotateCamera = true;
-            rotationElapsedTime = 0f;
+            camera.rotateCamera = true;
             fenCounts = new Dictionary<string, int>();
             nbMoves = 0;
             stockfish.StartStockfish();
@@ -183,12 +163,17 @@ public class Chessboard : MonoBehaviour
 
     IEnumerator MovePieceTest()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.3f);
         
         if (GameManager.Instance.mode == GameManager.Mode.Placement) GameManager.Instance.mode = GameManager.Mode.Game;
         //string move = stockfish.GetBestMove(listMoves.ConvertAll<string>(elem => $"{elem.Item1.name.ToLower()}{elem.Item2.name.ToLower()}").ToArray());
         Debug.Log("Getting the best move from Stockfish");
-        string move = stockfish.GetBestMove(fen);
+        stockfish.GetBestMove(fen);
+        
+    }
+
+    public void playNextMove(string move)
+    {
         Debug.Log(move);
         if (move != "(none)" && !isDraw)
         {

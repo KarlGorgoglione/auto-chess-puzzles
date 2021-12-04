@@ -114,7 +114,7 @@ public class DataManager : MonoBehaviour
         Debug.Log(grade);
         UserData data = LoadUserData();
 
-        data.grades[puzzleIdx] = grade;
+        if (data.grades[puzzleIdx] <= grade) data.grades[puzzleIdx] = grade;
         SaveUserData(data);
     }
 
