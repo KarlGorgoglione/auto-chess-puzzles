@@ -5,8 +5,9 @@ using UnityEngine;
 public class Rook : ChessPiece
 {
 
-    void Start()
+    public override void Awake()
     {
+        base.Awake();
         pieceName = "R";
         pieceValue = 5;
     }

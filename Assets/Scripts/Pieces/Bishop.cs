@@ -5,8 +5,9 @@ using UnityEngine;
 public class Bishop : ChessPiece
 {
 
-    private void Start()
+    public override void Awake()
     {
+        base.Awake();
         pieceName = "B";
         pieceValue = 3;
     }

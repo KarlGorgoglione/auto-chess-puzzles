@@ -7,8 +7,9 @@ public class King : ChessPiece
 
     public bool hasMoved;
 
-    private void Start()
+    public override void Awake()
     {
+        base.Awake();
         hasMoved = false;
         pieceName = "K";
     }

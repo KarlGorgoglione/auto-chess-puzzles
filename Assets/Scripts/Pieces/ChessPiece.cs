@@ -24,6 +24,7 @@ public class ChessPiece : MonoBehaviour
     protected float elapsedTime;
 
     public Vector3 desiredPosition;
+    public Vector3 previousPos;
 
     Plane plane;
 
@@ -36,8 +37,10 @@ public class ChessPiece : MonoBehaviour
     [SerializeField]
     bool isMovable;
 
+    bool isDragFrozen;
 
-    private void Awake()
+
+    public virtual void Awake()
     {
         movementTime = 0.7f;
         elapsedTime = float.MaxValue;
@@ -75,27 +78,26 @@ public class ChessPiece : MonoBehaviour
     {
         if (color == PieceColor.White && isMovable)
         {
-            // with Raycast
-            Debug.Log(plane.normal);
-            isHeld = true;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            float distance; // the distance from the ray origin to the ray intersection of the plane
-
-            if (plane.Raycast(ray, out distance))
+            if (isOnBoard)
             {
-                Vector3 dest = ray.GetPoint(distance);
-                if (isOnBoard)
+                // with Raycast
+                isHeld = true;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                float distance; // the distance from the ray origin to the ray intersection of the plane
+
+                if (plane.Raycast(ray, out distance))
                 {
-                    transform.position = new Vector3(
-                        MathTools.CustomRound(-0.5f, 0.5f, dest.x),
-                        dest.y,
-                        MathTools.CustomRound(-0.5f, 0.5f, dest.z)); // distance along the ray
-                }
-                else
-                {
-                    transform.position = dest;
+                    Vector3 dest = ray.GetPoint(distance);
+                    if (dest.x >= -3.5 && dest.x <= 3.5 && dest.z >= -3.5 && dest.z <= 3.5)
+                    {
+                        transform.position = new Vector3(
+                            MathTools.CustomRound(-0.5f, 0.5f, dest.x),
+                            dest.y,
+                            MathTools.CustomRound(-0.5f, 0.5f, dest.z)); // distance along the ray
+                    }
                 }
             }
+            
         }
         
     }
@@ -105,6 +107,7 @@ public class ChessPiece : MonoBehaviour
         if (other.CompareTag("Square"))
         {
             isOnBoard = true;
+            previousPos = transform.position;
             activeSquare = other.GetComponent<Square>();
         }
     }
@@ -120,6 +123,7 @@ public class ChessPiece : MonoBehaviour
         if (other.CompareTag("Square"))
         {
             isOnBoard = false;
+            isDragFrozen = true;
         }
     }
 
@@ -128,7 +132,7 @@ public class ChessPiece : MonoBehaviour
         if (color == PieceColor.White)
         {
             isHeld = false;
-            if (activeSquare.squarePiece != this) transform.position = startPos;
+            if (activeSquare.squarePiece != this) transform.position = previousPos;
         }
     }
 }

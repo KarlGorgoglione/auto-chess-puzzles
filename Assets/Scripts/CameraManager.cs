@@ -31,6 +31,7 @@ public class CameraManager : MonoBehaviour
         if (rotateCamera)
         {
             camera.transform.eulerAngles = Vector3.Lerp(cameraInitRotation.eulerAngles, newRotation, Mathf.SmoothStep(0, 1, rotationElapsedTime / rotationTime));
+
             rotationElapsedTime += Time.deltaTime;
         }
         if (rotationElapsedTime > rotationTime)

@@ -5,8 +5,9 @@ using UnityEngine;
 public class Queen : ChessPiece
 {
 
-    private void Start()
+    public override void Awake()
     {
+        base.Awake();
         pieceName = "Q";
         pieceValue = 9;
 

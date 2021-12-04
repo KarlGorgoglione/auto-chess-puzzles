@@ -100,6 +100,7 @@ public class Chessboard : MonoBehaviour
         GameObject prefab = turn == "b" ? blackQueenPrefab : whiteQueenPrefab;
         Vector3 pos = new Vector3(to.transform.position.x, 0.1f, to.transform.position.z);
         GameObject queen = Instantiate(prefab, pos, prefab.transform.rotation);
+        queen.GetComponent<Queen>().resetColor();
         to.assignPiece(queen.GetComponent<Queen>());
     }
 

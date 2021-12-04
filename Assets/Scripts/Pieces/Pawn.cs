@@ -5,8 +5,9 @@ using UnityEngine;
 public class Pawn : ChessPiece
 {
 
-    private void Start()
+    public override void Awake()
     {
+        base.Awake();
         pieceName = "P";
         pieceValue = 1;
     }

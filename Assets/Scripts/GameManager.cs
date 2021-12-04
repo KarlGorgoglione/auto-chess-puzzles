@@ -61,6 +61,11 @@ public class GameManager : MonoBehaviour
         transitionElapsedTime = 0f;
         transitionTime = 0.7f;
 
+        if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex -1)
+        {
+            nextLevelButton.gameObject.SetActive(false);
+        }
+
         Debug.Log(SystemInfo.operatingSystem);
     }
 
@@ -79,6 +84,11 @@ public class GameManager : MonoBehaviour
     public void hideTutorial()
     {
         tutorialScreen.SetActive(false);
+    }
+
+    public void nextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void EndGame(bool isWon)
