@@ -45,6 +45,9 @@ public class GameManager : MonoBehaviour
 
     float transitionElapsedTime, transitionTime;
 
+    bool isLoadingEnabled;
+    float elapsedTransitionTime;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -65,8 +68,7 @@ public class GameManager : MonoBehaviour
         {
             nextLevelButton.gameObject.SetActive(false);
         }
-
-        Debug.Log(SystemInfo.operatingSystem);
+        
     }
 
     // Update is called once per frame
@@ -78,7 +80,15 @@ public class GameManager : MonoBehaviour
             transitionElapsedTime += Time.deltaTime;
             if (transitionElapsedTime > transitionTime) loadingScreen.SetActive(false);
         }
+
+        if (isLoadingEnabled)
+        {
+            loadingScreen.GetComponent<Image>().color = new Color(0, 0, 0, Mathf.Lerp(0, 1, elapsedTransitionTime / transitionTime));
+            elapsedTransitionTime += Time.deltaTime;
+            if (elapsedTransitionTime > transitionTime) isLoadingEnabled = false;
+        }
         
+
     }
 
     public void hideTutorial()
@@ -88,12 +98,23 @@ public class GameManager : MonoBehaviour
 
     public void nextLevel()
     {
+        loadingScreen.gameObject.SetActive(true);
+        elapsedTransitionTime = 0f;
+        isLoadingEnabled = true;
+
+        StartCoroutine(loadScene());
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    IEnumerator loadScene()
+    {
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void EndGame(bool isWon)
     {
-        Debug.Log(isWon);
         if (!isWon)
         {
             mode = Mode.Lost;
