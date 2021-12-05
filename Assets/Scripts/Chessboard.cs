@@ -35,6 +35,8 @@ public class Chessboard : MonoBehaviour
     [SerializeField]
     GameObject triggerGamePanel;
 
+    AudioSource slideSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,7 @@ public class Chessboard : MonoBehaviour
         //StartCoroutine(MovePieceTest());
         isCheckmate = false;
         isDraw = false;
+        slideSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -110,15 +113,12 @@ public class Chessboard : MonoBehaviour
         {
             if (willCastle(from, to))
             {
-                Debug.Log("Castling the king");
                 makeCastle(from, to);
             }
             else
             {
-                Debug.Log($"Moving the piece {from.squarePiece.pieceName} to an empty square");
                 if(checkPromotion(from, to))
                 {
-                    Debug.Log("ON PROMOUVOIT");
                     makePromotion(from, to);
                 }
                 else
@@ -130,11 +130,9 @@ public class Chessboard : MonoBehaviour
         }
         else if (from.squarePiece != null && to.squarePiece != null)
         {
-            Debug.Log($"Moving the piece {from.squarePiece.pieceName} to take {to.squarePiece.pieceName}");
             to.removePiece();
             if (checkPromotion(from, to))
             {
-                Debug.Log("ON PROMOUVOIT");
                 makePromotion(from, to);
             }
             else
@@ -147,6 +145,7 @@ public class Chessboard : MonoBehaviour
         {
             Debug.Log($"Cannot move the piece {from.squarePiece} to {to.squarePosition}");
         }
+        slideSound.Play();
         turn = turn == "w" ? "b" : "w";
         updateFen();
         nbMoves++;
@@ -159,7 +158,15 @@ public class Chessboard : MonoBehaviour
             camera.rotateCamera = true;
             fenCounts = new Dictionary<string, int>();
             nbMoves = 0;
-            stockfish.StartStockfish();
+            if (SystemInfo.operatingSystem.ToLower().Contains("windows"))
+            {
+                stockfish.StartStockfish("windows");
+            }
+            else
+            {
+                stockfish.StartStockfish("linux");
+            }
+            
             updateFen();
             triggerGamePanel.SetActive(false);
             for (int i = 0; i < 8; i++)
@@ -178,15 +185,12 @@ public class Chessboard : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         
         if (GameManager.Instance.mode == GameManager.Mode.Placement) GameManager.Instance.mode = GameManager.Mode.Game;
-        //string move = stockfish.GetBestMove(listMoves.ConvertAll<string>(elem => $"{elem.Item1.name.ToLower()}{elem.Item2.name.ToLower()}").ToArray());
-        Debug.Log("Getting the best move from Stockfish");
         stockfish.GetBestMove(fen);
         
     }
 
     public void playNextMove(string move)
     {
-        Debug.Log(move);
         if (move != "(none)" && !isDraw)
         {
             (int, int) fromIdx = (letters.IndexOf(move[0].ToString().ToUpper()), (int.Parse(move[1].ToString()) - 1));

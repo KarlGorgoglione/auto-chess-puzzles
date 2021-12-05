@@ -31,10 +31,19 @@ public class Stockfish : MonoBehaviour
         }
     }
 
-    public void StartStockfish()
+    public void StartStockfish(string os)
     {
+        String path = $"{Application.streamingAssetsPath}/Stockfish/";
+        if (os == "windows")
+        {
+            path += "Windows/stockfish_14.1_win_x64_avx2.exe";
+        }
+        else
+        {
+            path += "Linux/stockfish_14.1_linux_x64_bmi2";
+        }
         System.Diagnostics.Process p = new System.Diagnostics.Process();
-        p.StartInfo.FileName = $"{Application.streamingAssetsPath}/Stockfish/stockfish_14.1_win_x64_avx2.exe";
+        p.StartInfo.FileName = path;
         p.StartInfo.UseShellExecute = false;
         p.StartInfo.CreateNoWindow = true;
         p.StartInfo.RedirectStandardInput = true;
