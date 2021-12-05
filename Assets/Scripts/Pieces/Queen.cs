@@ -5,7 +5,7 @@ using UnityEngine;
 public class Queen : ChessPiece
 {
 
-    public override void Awake()
+    public override void Awake() // POLYMORPHISM
     {
         base.Awake();
         pieceName = "Q";

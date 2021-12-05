@@ -72,6 +72,7 @@ public class Chessboard : MonoBehaviour
         return isKing && isLongMove && !hasAlreadyMoved;
     }
 
+    // ABSTRACTION Example
     void makeCastle(Square from, Square to)
     {
         to.assignPiece(from.squarePiece);
