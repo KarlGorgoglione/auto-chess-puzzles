@@ -20,7 +20,7 @@ public class DataManager : MonoBehaviour
 
     public int[] grades;
 
-    public static DataManager Instance { get; private set; }
+    public static DataManager Instance { get; private set; } // ENCAPSULATION
 
     public string[] scenes;
 

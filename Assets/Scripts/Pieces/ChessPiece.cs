@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE : Every Chess piece class inherits from ChessPiece : Queen, Rook etc...
 public class ChessPiece : MonoBehaviour
 {
 
